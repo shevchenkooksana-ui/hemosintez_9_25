@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Фотосинтез. Хемосинтез — 9 клас</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff4dc;--fg:#1d2b4f;--card:#fff;--p:#6c3fd1;--g:#1a8f4c;--r:#d93a40;--o:#f57c00;--b:#1565c0;--y:#ffd54f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15182b;--fg:#f4f1ff;--card:#262a47;--y:#7a5c00}}
+:root[data-theme="dark"]{--bg:#15182b;--fg:#f4f1ff;--card:#262a47;--y:#7a5c00}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:700 20px/1.4 Roboto,Arial,sans-serif}
+nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--p);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+nav a{flex:1 1 140px;text-align:center;padding:12px 8px;border-radius:14px;color:#fff;background:rgba(255,255,255,.2);text-decoration:none;font-size:18px}
+nav a.on{background:var(--y);color:#222}
+main{max-width:1000px;margin:0 auto;padding:16px}
+section{display:none}section.on{display:block}
+h1{font-size:30px;font-weight:900;margin:8px 0;color:#fff;padding:18px;border-radius:18px;text-align:center}
+.h1{background:linear-gradient(135deg,#1a8f4c,#00a8a8)}.h2{background:linear-gradient(135deg,#f57c00,#e53935)}
+.h3{background:linear-gradient(135deg,#1565c0,#6c3fd1)}.h4{background:linear-gradient(135deg,#d81b8a,#f57c00)}
+.h5{background:linear-gradient(135deg,#6c3fd1,#1565c0)}.h6{background:linear-gradient(135deg,#00897b,#7cb342)}
+p.t{font-size:20px}
+button{font:900 22px Roboto,Arial,sans-serif;padding:14px 26px;border:0;border-radius:16px;color:#fff;background:var(--p);cursor:pointer;margin:6px 6px 6px 0}
+button:disabled{opacity:.55;cursor:default}
+.grid{display:grid;grid-template-columns:.8fr 1fr 1fr;gap:8px;margin:12px 0}
+.hd{background:var(--p);color:#fff;padding:12px;border-radius:12px;text-align:center;font-size:22px;font-weight:900}
+.hd.a{background:var(--g)}.hd.c{background:var(--o)}
+.rl{background:var(--b);color:#fff;padding:10px;border-radius:12px;display:flex;align-items:center}
+.cell{min-height:100px;border:3px dashed var(--p);border-radius:12px;padding:6px;background:var(--card);display:flex;align-items:center;justify-content:center}
+.cell.bad{border-color:var(--r);background:#ffd0d0}
+.pool{display:flex;flex-wrap:wrap;gap:10px;padding:12px;background:var(--y);border-radius:16px;min-height:80px;color:#222}
+.dc{background:var(--card);color:var(--fg);padding:10px 14px;border-radius:12px;border:3px solid var(--o);cursor:grab;font-size:18px;width:100%}
+.pool .dc{width:auto;flex:1 1 220px}
+.dc.sel{outline:5px solid var(--p)}.dc.ok{border-color:var(--g);background:#c9f2d8;color:#0b3d1f;cursor:default}
+.box{background:var(--card);border-radius:18px;padding:18px;margin:12px 0;border-left:10px solid var(--o)}
+.box.ok{border-color:var(--g)}.box.no{border-color:var(--r)}
+.fb{font-size:20px;margin:8px 0}
+.good{color:var(--g)}.badt{color:var(--r)}
+.fcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.fc{perspective:900px;height:230px;cursor:pointer}
+.in{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.fc.f .in{transform:rotateY(180deg)}
+.fa,.fb2{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;padding:16px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:auto}
+.fa{font-size:24px;font-weight:900}.fb2{transform:rotateY(180deg);font-size:19px}
+.th{cursor:pointer;background:var(--card);border-radius:18px;padding:18px;margin:14px 0;border-left:10px solid var(--p)}
+.th .q{font-size:22px;font-weight:900}.th .an{display:none;margin-top:12px;padding:14px;border-radius:12px;background:var(--y);color:#222}
+.th.open .an{display:block}
+.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--fg);border:3px solid var(--b);font-size:20px;padding:12px 16px;margin:8px 0}
+.opt.sel{background:var(--b);color:#fff}.opt.c{background:#c9f2d8;color:#0b3d1f;border-color:var(--g)}.opt.w{background:#ffd0d0;color:#5a0b0b;border-color:var(--r)}
+.big{font-size:44px;font-weight:900;text-align:center}
+.em{display:inline-block;font-size:28px;padding:8px 14px;margin:4px;background:var(--card);color:var(--fg);border:3px solid var(--p)}
+.em.s{background:var(--p);color:#fff}
+@media(max-width:600px){body{font-size:18px}.grid{grid-template-columns:.7fr 1fr 1fr;gap:5px}.dc{font-size:15px;padding:6px}.rl,.hd{font-size:15px;padding:6px}}
+</style></head><body>
+<nav id="nav"></nav>
+<main>
+<section id="table"><h1 class="h1">🌿 1. Порівняй: фотосинтез і хемосинтез</h1>
+<p class="t">Перетягни картку до потрібної клітинки (на телефоні: торкнись картки, потім клітинки).</p>
+<div class="grid" id="tg"></div>
+<div class="pool" id="pool"></div><p class="big" id="tmsg"></p></section>
+
+<section id="yesno"><h1 class="h2">✅ 2. Так чи Ні?</h1>
+<p class="t">Питання відкриваються по черзі. Обери відповідь і натисни «Далі».</p><div id="yn"></div></section>
+
+<section id="cards"><h1 class="h3">🃏 3. Флешкартки</h1>
+<p class="t">Натисни на картку, щоб побачити відповідь.</p><div class="fcs" id="fc"></div></section>
+
+<section id="think"><h1 class="h4">💭 4. Поміркуй</h1>
+<p class="t">Натисни на блок із питанням, щоб відкрити відповідь.</p><div id="th"></div></section>
+
+<section id="test"><h1 class="h5">📝 5. Тест (12 балів)</h1>
+<p class="t">Кожна правильна відповідь — 1 бал.</p><div id="tq"></div>
+<button id="tb">Перевірити тест</button><p class="big" id="tr"></p></section>
+
+<section id="self"><h1 class="h6">⭐ 6. Самооцінювання</h1><div id="sf"></div></section>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const pages=[["table","1 Таблиця"],["yesno","2 Так / Ні"],["cards","3 Картки"],["think","4 Поміркуй"],["test","5 Тест"],["self","6 Самооцінювання"]];
+$("#nav").innerHTML=pages.map(p=>`<a href="#${p[0]}" data-p="${p[0]}">${p[1]}</a>`).join("");
+function route(){let h=location.hash.slice(1);if(!pages.some(p=>p[0]==h))h="table";
+document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id==h));
+document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.p==h));
+if(h=="self")renderSelf();window.scrollTo(0,0)}
+addEventListener("hashchange",route);
+
+/* 1 table */
+const rows=["Джерело енергії","Хто здійснює","Відкриття","Біологічна роль"];
+const cd=[["Енергія світла Сонця","Енергія окиснення неорганічних сполук"],
+["Рослини, водорості, ціанобактерії","Нітрифікуючі бактерії, залізобактерії"],
+["Цикл Кальвіна (М. Кальвін, Нобелівська премія 1961)","С. М. Виноградський, 1887 рік"],
+["Підтримує склад атмосфери, утворює озоновий екран","Колообіг елементів; синтез там, куди не досягає світло"]];
+let g=`<div class="hd">Ознака</div><div class="hd a">🌞 Фотосинтез</div><div class="hd c">🦠 Хемосинтез</div>`;
+rows.forEach((r,i)=>{g+=`<div class="rl">${r}</div><div class="cell" data-k="${i}0"></div><div class="cell" data-k="${i}1"></div>`});
+$("#tg").innerHTML=g;
+let sel=null,done=0;
+const cards=[];cd.forEach((r,i)=>r.forEach((t,j)=>cards.push({t,k:""+i+j})));
+cards.sort(()=>Math.random()-.5);
+cards.forEach((c,n)=>{const d=document.createElement("div");d.className="dc";d.textContent=c.t;d.draggable=true;d.dataset.k=c.k;
+d.ondragstart=e=>{e.dataTransfer.setData("text",n);sel=d};
+d.onclick=()=>{if(d.classList.contains("ok"))return;if(sel)sel.classList.remove("sel");sel=d;d.classList.add("sel")};
+$("#pool").appendChild(d);c.el=d});
+document.querySelectorAll(".cell").forEach(cell=>{
+const put=()=>{if(!sel||cell.children.length)return;
+if(sel.dataset.k==cell.dataset.k){cell.appendChild(sel);sel.classList.remove("sel");sel.classList.add("ok");sel.draggable=false;sel=null;
+if(++done==8)$("#tmsg").textContent="🎉 Чудово! Усе правильно!"}
+else{cell.classList.add("bad");setTimeout(()=>cell.classList.remove("bad"),700)}};
+cell.ondragover=e=>e.preventDefault();cell.ondrop=e=>{e.preventDefault();put()};cell.onclick=put});
+
+/* 2 yes/no */
+const yn=[["Темнова фаза фотосинтезу відбувається у стромі хлоропластів.",1],["Для реакцій темнової фази обов’язкове світло.",0],
+["Акцептором CO₂ у циклі Кальвіна є рибулозо-1,5-бісфосфат.",1],["Цикл Кальвіна відкрив С. М. Виноградський.",0],
+["Кінцевим продуктом фотосинтезу є глюкоза.",1],["Молекулярний кисень виділяється під час темнової фази.",0],
+["RuBisCo — ключовий фермент темнової фази фотосинтезу.",1],["Хемосинтез відкрив 1887 року С. М. Виноградський.",1],
+["Хемотрофи для синтезу органічних сполук використовують енергію світла.",0],["Нітрифікуючі бактерії окиснюють амоніак до нітритів, а потім до нітратів.",1],
+["Залізобактерії окиснюють Fe²⁺ до Fe³⁺.",1],["Хемосинтез здійснюють лише певні групи бактерій.",1],
+["Озоновий шар поглинає короткохвильове ультрафіолетове випромінювання.",1],["У пурпурових бактерій під час фотосинтезу виділяється кисень.",0],
+["Для включення однієї молекули CO₂ цикл Кальвіна споживає 2 НАДФ·Н і 3 АТФ.",1],["Більшість культурних рослин засвоює 7–8 % світлової енергії.",0]];
+let ys=0;
+function ask(i){const b=document.createElement("div");b.className="box";
+b.innerHTML=`<div>Питання ${i+1} з ${yn.length}</div><div style="font-size:23px;margin:8px 0">${yn[i][0]}</div>`;
+const mk=(l,v,c)=>{const x=document.createElement("button");x.textContent=l;x.style.background=c;x.onclick=()=>{
+b.querySelectorAll("button").forEach(z=>z.disabled=true);const ok=v==yn[i][1];if(ok)ys++;b.classList.add(ok?"ok":"no");
+const f=document.createElement("div");f.className="fb "+(ok?"good":"badt");f.textContent=ok?"✔ Правильно!":"✘ Неправильно. Це твердження "+(yn[i][1]?"правильне.":"хибне.");b.appendChild(f);
+const n=document.createElement("button");
+if(i+1<yn.length){n.textContent="Далі →";n.onclick=()=>{n.remove();ask(i+1)}}
+else{n.textContent="Результат";n.onclick=()=>{n.remove();const r=document.createElement("p");r.className="big";r.textContent=`🏆 ${ys} з ${yn.length}`;$("#yn").appendChild(r);r.scrollIntoView({behavior:"smooth"})}}
+b.appendChild(n)};return x};
+b.appendChild(mk("✅ ТАК",1,"var(--g)"));b.appendChild(mk("❌ НІ",0,"var(--r)"));
+$("#yn").appendChild(b);b.scrollIntoView({behavior:"smooth",block:"center"})}
+ask(0);
+
+/* 3 flashcards */
+const fl=[["Темнова фаза","Світлонезалежні реакції в стромі хлоропластів, під час яких з CO₂ синтезуються вуглеводи."],
+["Цикл Кальвіна","Послідовність реакцій темнової фази. Назва — на честь М. Кальвіна (Нобелівська премія з хімії, 1961)."],
+["Акцептор CO₂","Рибулозо-1,5-бісфосфат — моносахарид із п’ятьма атомами Карбону."],
+["RuBisCo","Рибулозобісфосфаткарбоксилаза — ключовий фермент темнової фази, найпоширеніший білок планети."],
+["Повітряне живлення","Процес надходження CO₂ до клітин рослин."],
+["Кінцевий продукт фотосинтезу","Глюкоза."],
+["Підсумкове рівняння фотосинтезу","6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂↑"],
+["Хемосинтез","Синтез органічних речовин за рахунок енергії, що вивільняється під час окиснення неорганічних сполук."],
+["Хемотрофи","Організми, що здійснюють хемосинтез — певні групи бактерій."],
+["Нітрифікуючі бактерії","Окиснюють амоніак до нітритів, а потім до нітратів."],
+["Залізобактерії","Окиснюють Fe²⁺ до Fe³⁺; беруть участь у створенні покладів залізних руд."],
+["Озоновий екран","Шар O₃, що утворюється з кисню й поглинає короткохвильове ультрафіолетове випромінювання."]];
+const cl=["#1a8f4c","#1565c0","#6c3fd1","#d81b8a","#f57c00","#00897b"];
+$("#fc").innerHTML=fl.map((f,i)=>`<div class="fc" onclick="this.classList.toggle('f')"><div class="in"><div class="fa" style="background:${cl[i%6]}">${f[0]}</div><div class="fb2" style="background:${cl[(i+3)%6]}">${f[1]}</div></div></div>`).join("");
+
+/* 4 think */
+const th=[["Чи можливий фотосинтез за штучного освітлення?","Так. Фотосинтез може відбуватися не лише за сонячного, а й за штучного освітлення — у теплицях регулюють тривалість та інтенсивність світла. Але підвищення інтенсивності допомагає лише до певної межі."],
+["Яке значення має світло для перебігу темнової фази?","Безпосередньо світло не потрібне — тому реакції йдуть цілодобово. Але темнова фаза використовує АТФ і НАДФ·Н, утворені у світловій фазі, тож без світлової фази вона неможлива."],
+["Чому хемосинтез можливий лише в прокаріотів?","Хемосинтез здійснюють певні групи бактерій (прокаріотів): вони мають ферменти, що окиснюють неорганічні речовини — аміак, Fe²⁺, сірководень — і використовують цю енергію для синтезу органічних сполук."],
+["Що спільного і відмінного між хемосинтезом і фотосинтезом?","Спільне: в обох процесах з неорганічних сполук створюються органічні. Відмінне: фотосинтез використовує енергію світла (є хлорофіл), а хемосинтез — енергію окиснення неорганічних речовин."],
+["Чому нестача вологи гальмує фотосинтез навіть за оптимального освітлення?","Вода — вихідна речовина фотосинтезу: під час фотолізу води виділяється кисень. Без достатньої кількості води світлова фаза сповільнюється, тому й весь процес гальмується."]];
+$("#th").innerHTML=th.map(t=>`<div class="th" onclick="this.classList.toggle('open')"><div class="q">❓ ${t[0]}</div><div class="an">💡 ${t[1]}</div></div>`).join("");
+
+/* 5 test */
+const tq=[["Де відбувається темнова фаза фотосинтезу?",["У тилакоїдах","У стромі хлоропластів","У мітохондріях","У ядрі"],1],
+["Що є акцептором CO₂ у циклі Кальвіна?",["Глюкоза","НАДФ","Рибулозо-1,5-бісфосфат","АТФ"],2],
+["Хто з’ясував послідовність реакцій темнової фази?",["С. Виноградський","М. Кальвін","Ч. Дарвін","Г. Мендель"],1],
+["Скільки НАДФ·Н і АТФ споживає цикл на включення однієї молекули CO₂?",["1 і 1","2 і 3","3 і 2","6 і 6"],1],
+["Що є кінцевим продуктом фотосинтезу?",["Білок","Кисень","Глюкоза","Амоніак"],2],
+["Хто і коли відкрив хемосинтез?",["М. Кальвін, 1961","С. Виноградський, 1887","С. Виноградський, 1961","М. Кальвін, 1887"],1],
+["Що окиснюють залізобактерії?",["Амоніак","Сполуки Fe²⁺ до Fe³⁺","Сірководень","Глюкозу"],1],
+["Як нітрифікуючі бактерії окиснюють амоніак?",["Спочатку до нітратів, потім до нітритів","Спочатку до нітритів, потім до нітратів","До сульфатів","До глюкози"],1],
+["Яка ознака характерна для хемотрофів?",["Використовують енергію світла","Використовують енергію окиснення неорганічних речовин","Містять хлорофіл","Є лише еукаріотами"],1],
+["Яку функцію виконує озоновий шар?",["Виробляє кисень","Поглинає короткохвильове ультрафіолетове випромінювання","Поглинає CO₂","Зберігає воду"],1],
+["Який організм має дві фотосистеми й виділяє кисень?",["Пурпурові бактерії","Зелені сірчані бактерії","Ціанобактерії","Залізобактерії"],2],
+["Яку частку світлової енергії засвоює цукрова тростина?",["1–2 %","7–8 %","50 %","100 %"],1]];
+let ans=tq.map(()=>-1),SC=null;
+$("#tq").innerHTML=tq.map((q,i)=>`<div class="box"><div style="font-size:22px">${i+1}. ${q[0]}</div>${q[1].map((o,j)=>`<button class="opt" data-i="${i}" data-j="${j}">${o}</button>`).join("")}</div>`).join("");
+document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(SC!==null)return;const i=+b.dataset.i;ans[i]=+b.dataset.j;
+document.querySelectorAll(`.opt[data-i="${i}"]`).forEach(x=>x.classList.toggle("sel",x==b))});
+$("#tb").onclick=()=>{if(SC!==null)return;if(ans.includes(-1)){$("#tr").textContent="Відповідай на всі питання!";return}
+SC=0;tq.forEach((q,i)=>{if(ans[i]==q[2])SC++;document.querySelectorAll(`.opt[data-i="${i}"]`).forEach(x=>{const j=+x.dataset.j;x.classList.remove("sel");
+if(j==q[2])x.classList.add("c");else if(j==ans[i])x.classList.add("w")})});
+$("#tr").innerHTML=`🏆 ${SC} з 12 балів<br><a href="#self" style="font-size:22px;color:var(--b)">Перейти до самооцінювання →</a>`;$("#tb").disabled=true};
+
+/* 6 self */
+const cr=["Можу пояснити, що відбувається в темновій фазі фотосинтезу","Знаю, що таке цикл Кальвіна та RuBisCo","Можу порівняти фотосинтез і хемосинтез","Знаю основні групи хемосинтезуючих бактерій","Розумію значення фотосинтезу для біосфери"];
+let rt={};
+function renderSelf(){const lv=SC===null?"":SC>=11?"Високий рівень 🌟":SC>=8?"Достатній рівень 👍":SC>=5?"Середній рівень 🙂":"Початковий рівень — повтори тему 📖";
+let h=`<div class="box"><div style="font-size:24px">Результат тесту:</div><div class="big">${SC===null?"тест ще не пройдено":SC+" / 12"}</div><div class="big" style="font-size:26px">${lv}</div></div><p class="t">Оціни себе: 😟 потрібна допомога · 🙂 частково · 😃 легко!</p>`;
+cr.forEach((c,i)=>{h+=`<div class="box"><div>${c}</div>${["😟","🙂","😃"].map((e,j)=>`<button class="em ${rt[i]==j+1?"s":""}" onclick="rate(${i},${j+1})">${e}</button>`).join("")}</div>`});
+const n=Object.keys(rt).length,s=Object.values(rt).reduce((a,b)=>a+b,0);
+if(n==cr.length)h+=`<div class="box ok big" style="font-size:26px">${s>=13?"Ти почуваєшся впевнено! 🎉":s>=9?"Непогано! Повтори складні питання 💪":"Перечитай § 25 і спробуй ще раз 📚"}</div>`;
+$("#sf").innerHTML=h}
+function rate(i,v){rt[i]=v;renderSelf()}
+route();
+</script></body></html>
